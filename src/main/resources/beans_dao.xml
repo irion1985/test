@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
+	<property name="url" value="jdbc:oracle:thin:@211.183.2.161:1521:xe"></property>
+	<property name="username" value="pro"></property>
+	<property name="password" value="1234"></property>
+	<property name="maxActive" value="10"></property>
+</bean>
+
+<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"/>
+	<property name="mapperLocations">
+	 	<list>
+<!-- 	 		<value>classpath:com/webapp/mapper/MemberMapper.xml</value> -->
+	 		<value>classpath:com/webapp/mapper/TrainerMapper.xml</value>
+	 	</list>
+	</property>
+</bean>
+
+<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg ref="sqlSessionFactoryBean"/>
+</bean>
+
+<!-- <bean id="MemberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
+<!-- 	<property name="mapperInterface" value="com.webapp.mapper.MemberMapper"></property> -->
+<!-- 	<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property> -->
+<!-- </bean> -->
+
+<bean id="TrainerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.webapp.mapper.TrainerMapper"></property>
+	<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+</bean>
+
+</beans>
