@@ -89,7 +89,7 @@ $(function(){
         <li><a href="gallery4"> 갤러리 ver 0.5 <br> 갤러리4 </a></li>
       </ul>
     </li> 
-    <li><a href="#">4번 메뉴: 잠온다</a></li> 
+    <li><a href="uploadform">4번 메뉴: 업로드</a></li> 
   </ul>
 </div>
 </head>

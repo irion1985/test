@@ -1,24 +1,21 @@
 package com.webapp.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.google.gson.Gson;
 import com.webapp.mapper.MemberMapper;
 import com.webapp.mapper.TrainerMapper;
-import com.webapp.model.Member;
 
 @Controller
 public class AjaxController {
 	
 	@Autowired
-	TrainerMapper mapper;
+	MemberMapper mem;
+	
+	@Autowired
+	TrainerMapper tr;
 	
 	@RequestMapping("view")
 	public String me3(){

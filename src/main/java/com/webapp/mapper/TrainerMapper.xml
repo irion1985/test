@@ -1,13 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.webapp.mapper.TrainerMapper" >
+    
+    <resultMap type="com.webapp.model.Trainer" id="trs" >
+       <id property="tr_num" column="tr_num"/> 
+       <result property="tr_name" column="tr_name"/>
+        <result property="tr_ename" column="tr_ename"/>
+        <result property="tr_birth" column="tr_birth"/>
+        <result property="tr_gender" column="tr_gender"/>
+        <result property="tr_height" column="tr_height"/>
+        <result property="tr_profile" column="tr_profile"/>
+    </resultMap>
+    
    <select id="selectByTr_name" parameterType="string" resultType="com.webapp.model.Trainer">
        select tr_num,tr_name,tr_ename,tr_birth,tr_gender,tr_height from trainer where tr_ename= #{tr_name}
    </select> 
     
-    <select id="selectList" parameterType="string" resultType="com.webapp.model.Trainer">
-       select tr_num,tr_name,tr_ename,tr_birth,tr_gender,tr_height from trainer
+    <select id="selectList" resultMap="trs">
+       select * from trainer
    </select> 
     
+    <insert id="updateImg" parameterType="com.webapp.model.Trainer" >
+<!-- 	int tr_num; -->
+<!-- 	String tr_name; -->
+<!-- 	String tr_ename; -->
+<!-- 	String tr_birth; -->
+<!-- 	String tr_gender; -->
+<!-- 	String tr_height; -->
+<!-- 	String tr_weight; -->
+<!-- 	String tr_jongmok; -->
+<!-- 	String tr_exp; -->
+<!-- 	String tr_special; -->
+<!-- 	String tr_jasosul; -->
+<!-- 	String tr_profile; -->
+        
+	insert into trainer
+	(
+		tr_num,
+		tr_name,
+		tr_ename,
+		tr_birth,
+		tr_gender,
+		tr_height,
+		tr_profile
+	)
+	values
+	(
+		#{10001},
+		#{tr_name},
+		#{tr_ename},
+		#{tr_birth},
+		#{tr_gender},
+		#{tr_height},
+		#{tr_profile}
+	)
+</insert>
     
+<insert id="insert" parameterType="com.webapp.model.Img">
+        
+	insert into img
+	(up) 
+	values
+	(#{up})
+<!-- 	   and email	= #{email} -->
+<!-- update trainer set tr_profile='' where tr_num = 1000; -->
+</insert>
+
+<insert id="insertImg" parameterType="com.webapp.model.Img">
+        
+	insert into img
+	(up) 
+	values
+	(#{up})
+	where tr_num=1000
+	
+<!-- 	   and email	= #{email} -->
+<!-- update trainer set tr_profile='' where tr_num = 1000; -->
+</insert>
+
+
 </mapper>

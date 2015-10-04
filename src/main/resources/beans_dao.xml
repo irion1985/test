@@ -15,7 +15,7 @@
 	<property name="dataSource" ref="dataSource"/>
 	<property name="mapperLocations">
 	 	<list>
-<!-- 	 		<value>classpath:com/webapp/mapper/MemberMapper.xml</value> -->
+	 		<value>classpath:com/webapp/mapper/MemberMapper.xml</value>
 	 		<value>classpath:com/webapp/mapper/TrainerMapper.xml</value>
 	 	</list>
 	</property>
@@ -25,14 +25,25 @@
 	<constructor-arg ref="sqlSessionFactoryBean"/>
 </bean>
 
-<!-- <bean id="MemberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
-<!-- 	<property name="mapperInterface" value="com.webapp.mapper.MemberMapper"></property> -->
-<!-- 	<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property> -->
-<!-- </bean> -->
+<bean id="MemberMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.webapp.mapper.MemberMapper"></property>
+	<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+</bean>
 
-<bean id="TrainerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+<bean id="trainerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 	<property name="mapperInterface" value="com.webapp.mapper.TrainerMapper"></property>
 	<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+</bean>
+
+
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<!-- maximum file size in bytes 50MB -->
+	<property name="maxUploadSize" value="52428800"/>
+<!-- 	<property name="defaultEncoding" value="UTF-8"/> -->
+</bean>
+
+<bean id="boardService" class="com.webapp.service.BoardService">
+    <property name="trainerMapper" ref="trainerMapper"></property>
 </bean>
 
 </beans>

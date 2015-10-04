@@ -1,0 +1,10 @@
+ TR_NUM TR_NAME TR_ENAME TR_BIRTH TR_GENDER TR_HEIGHT TR_WEIGHT TR_JONGMOK TR_EXP TR_SPECIAL TR_JASOSUL TR_PROFILE 
+ ------ ------- -------- -------- --------- --------- --------- ---------- ------ ---------- ---------- ---------- 
+   1000 레드      Red      16세      남         184       NULL      NULL       NULL   NULL       NULL       NULL      
+   1001 오박사     O bak sa 50세      남         164       NULL      NULL       NULL   NULL       NULL       NULL      
+   1002 지우      G woo    10세      남         164       NULL      NULL       NULL   NULL       NULL       NULL      
+   1003 이슬      soju     10세      여         160       NULL      NULL       NULL   NULL       NULL       NULL      
+   1004 웅       woong    16세      남         180       NULL      NULL       NULL   NULL       NULL       NULL      
+   1005 피카츄     pikachu  1세       남         40        NULL      NULL       NULL   NULL       NULL       NULL      
+   1006 로이      Roy      25세      남         178       NULL      NULL       NULL   NULL       NULL       NULL      
+   1007 로사      Rosa     25세      여         170       NULL      NULL       NULL   NULL       NULL       NULL      
